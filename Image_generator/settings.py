@@ -94,17 +94,25 @@ WSGI_APPLICATION = 'Image_generator.wsgi.application'
 # }
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Image_Geneate_ai',
-        'USER': 'image_geneate_ai_user',
-        'PASSWORD': 'tX6HFxiludmThf4L6BUrlSNAtWFGGob9',
-        'HOST': 'postgresql://image_geneate_ai_user:tX6HFxiludmThf4L6BUrlSNAtWFGGob9@dpg-cv2kk10fnakc738bib8g-a/image_geneate_ai',  # e.g., localhost or Render database URL
-        'PORT': '5432',  # Default is 5432
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'Image_Geneate_ai',
+#         'USER': 'image_geneate_ai_user',
+#         'PASSWORD': 'tX6HFxiludmThf4L6BUrlSNAtWFGGob9',
+#         'HOST': 'postgresql://image_geneate_ai_user:tX6HFxiludmThf4L6BUrlSNAtWFGGob9@dpg-cv2kk10fnakc738bib8g-a/image_geneate_ai',  # e.g., localhost or Render database URL
+#         'PORT': '5432',  # Default is 5432
+#     }
+# }
 
+
+DATABASES = {
+    'default': dj_database_url.config(
+        # Replace this value with your local database's connection string.
+        default='postgresql://image_geneate_ai_user:tX6HFxiludmThf4L6BUrlSNAtWFGGob9@dpg-cv2kk10fnakc738bib8g-a/image_geneate_ai',
+        conn_max_age=600
+    )
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators

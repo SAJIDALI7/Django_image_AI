@@ -1,0 +1,22 @@
+databases:
+  - name: dpg-cv2kk10fnakc738bib8g-a
+    plan: free
+    databaseName: Image_Geneate_ai
+    user: Image_Geneate_ai_user
+
+services:
+  - type: web
+    plan: free
+    name: dpg-cv2kk10fnakc738bib8g-a
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "python3 -m gunicorn mysite.asgi:application -k uvicorn.workers.UvicornWorker"
+    envVars:
+      - key: postgresql://image_geneate_ai_user:tX6HFxiludmThf4L6BUrlSNAtWFGGob9@dpg-cv2kk10fnakc738bib8g-a/image_geneate_ai
+        fromDatabase:
+          name: Image_Geneate_ai
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4
