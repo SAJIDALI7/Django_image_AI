@@ -1,8 +1,8 @@
 databases:
-  - name: Image_generator
+  - name: dpg-cv2kk10fnakc738bib8g-a
     plan: free
     databaseName: Image_Geneate_ai
-    user: Image_Geneate_ai_user
+    user: dpg-cv2kk10fnakc738bib8g-a
 
 services:
   - type: web
@@ -14,7 +14,7 @@ services:
     envVars:
       - key: postgresql://image_geneate_ai_user:tX6HFxiludmThf4L6BUrlSNAtWFGGob9@dpg-cv2kk10fnakc738bib8g-a/image_geneate_ai
         fromDatabase:
-          name: Image_generator
+          name: dpg-cv2kk10fnakc738bib8g-a
           property: connectionString
       - key: SECRET_KEY
         generateValue: true
