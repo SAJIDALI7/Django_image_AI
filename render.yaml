@@ -2,7 +2,7 @@ databases:
   - name: Image_Geneate_ai
     plan: free
     databaseName: Image_Geneate_ai
-    user: Image_Geneate_ai
+    user: Image_Geneate_ai_user
 
 services:
   - type: web
