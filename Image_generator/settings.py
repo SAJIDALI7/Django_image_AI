@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'Image_generator.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         # Replace this value with your local database's connection string.
-        default='postgresql://postgres:postgres@localhost:5432/Image_Geneate_ai',
+        default='postgresql://image_geneate_ai_user:tX6HFxiludmThf4L6BUrlSNAtWFGGob9@dpg-cv2kk10fnakc738bib8g-a/image_geneate_ai',
         conn_max_age=600
     )
 }
