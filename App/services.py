@@ -16,11 +16,14 @@ class LeonardoAIService:
         url = f"{self.BASE_URL}/generations"
         
         payload = {
-            "prompt": prompt,
             "modelId": model_id,
+            "contrast": 3.5,
+            "prompt": prompt,
             "num_images": num_images,
             "width": width,
             "height": height,
+            "ultra": True,
+            "styleUUID": "111dc692-d470-4eec-b791-3475abac4c46",
         }
         
         try:
