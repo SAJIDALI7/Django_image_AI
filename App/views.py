@@ -13,14 +13,13 @@ def generate_image(request):
         if form.is_valid():
             prompt = form.cleaned_data['prompt']
             model_id = form.cleaned_data['model']
-            num_images = form.cleaned_data['num_images']
+            
             
             # Use Leonardo AI service
             leonardo_service = LeonardoAIService()
             generation_response = leonardo_service.generate_image(
                 prompt=prompt,
                 model_id=model_id,
-                num_images=num_images
             )
             
             if 'sdGenerationJob' in generation_response:
@@ -67,7 +66,6 @@ def check_generation(request, pk):
                     # Store the first URL in the model (you could extend this to store multiple)
                     generated_image.image_url = image_urls[0]
                     generated_image.save()
-    
     context = {
         'generated_image': generated_image,
         'model_name': model_name,

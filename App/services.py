@@ -11,7 +11,7 @@ class LeonardoAIService:
             "Content-Type": "application/json"
         }
     
-    def generate_image(self, prompt, model_id, num_images, width=512, height=512):
+    def generate_image(self, prompt, model_id, num_images=1, width=512, height=512):
         """Generate images using Leonardo AI with the specified model"""
         url = f"{self.BASE_URL}/generations"
         
@@ -25,6 +25,7 @@ class LeonardoAIService:
         
         try:
             response = requests.post(url, json=payload, headers=self.headers)
+            print(response.text)
             response.raise_for_status()
             return response.json()
         except requests.exceptions.RequestException as e:
@@ -37,6 +38,8 @@ class LeonardoAIService:
         
         try:
             response = requests.get(url, headers=self.headers)
+            # print(response.text)
+            
             response.raise_for_status()
             return response.json()
         except requests.exceptions.RequestException as e:

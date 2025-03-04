@@ -10,9 +10,4 @@ class ImageGenerationForm(forms.Form):
         choices=LEONARDO_MODELS,
         help_text="Select which AI model to use"
     )
-    num_images = forms.IntegerField(
-        min_value=1,
-        max_value=4,
-        initial=1,
-        help_text="Number of images to generate (1-4)"
-    )
+    
